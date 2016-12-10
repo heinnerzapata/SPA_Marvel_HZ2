@@ -1,2 +1,11 @@
-<h1>Home seria</h1>
-{{message}}
+<h1>Personajes</h1>
+
+<br/>
+
+<div ng-repeat="Character in Characters">
+
+  <img src='{{Character.thumbnail.path + "." +  Character.thumbnail.extension}}' style="width:200px;height:200px;">
+  <span>{{Character.name}}</span>
+  <span><p>Desc</p></span>
+
+</div>
