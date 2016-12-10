@@ -1,11 +1,62 @@
-<h1>Personajes</h1>
 
-<br/>
+<div class="container-fluid">
 
-<div ng-repeat="Character in Characters">
+  <div class="row">
 
-  <img src='{{Character.thumbnail.path + "." +  Character.thumbnail.extension}}' style="width:200px;height:200px;">
-  <span>{{Character.name}}</span>
-  <span><p>Desc</p></span>
+    <div class="col-xs-12 col-sm-12 col-md-9">
+
+      <div class="container-fluid">
+
+        <div class="row">
+
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" ng-repeat="Character in Characters">
+
+                <div class="card">
+
+                  <div class="container-fluid">
+
+                    <div class="row">
+
+                     <div class="col-xs-6">
+                        <img class='img-circle img-fluid' src='{{Character.thumbnail.path + "." +  Character.thumbnail.extension}}'>
+                     </div>
+                     <div class="col-xs-6">
+
+                       <div class='row text-xs-left'>
+
+                         <div class='caracterNameContainer' class='col-xs-12'>
+                           <span class='characterName'>{{Character.name}}</span>
+                         </div>
+
+                         <div class='col-xs-12'>
+                           <span><p>{{Character.description}}</p></span>
+                         </div>
+
+                       </div>
+
+
+                     </div>
+
+                  </div>
+
+                  </div>
+
+
+
+                </div>
+
+         </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-xs-12 col-sm-2 col-md-3">
+
+    </div>
+
+</div>
 
 </div>
