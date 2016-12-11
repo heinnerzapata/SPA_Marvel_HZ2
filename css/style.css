@@ -92,6 +92,7 @@ body{
 .relatedDescItem{
   font-size: 11px;
   margin-top: 5px;
+
 }
 
 .relatedDescItem:hover{
@@ -100,11 +101,79 @@ body{
   cursor: pointer;
 }
 
+.img-arrow-link{
+  height: 10px;
+  width: 20px;
+}
+
+.hidden{
+  display: none;
+}
+
+#marvel-logo{
+  height: 60px;
+  width: 180px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#txtSearch{
+  border-radius: 4px;
+  font-size: 18px;
+  width: 70%;  
+}
+
+#img-search{
+  
+  margin-left: -40px;
+  height: 31px;
+  margin-top: -3px;
+  border-radius: 4px;
+
+}
+
+#selOrder{
+  width: 200px;
+}
+
+#sortBySection{
+  margin-top: 10px;
+}
+
+#lblCharacters{
+  font-weight: bold;
+}
+
 @media (min-width: 100px) and (max-width: 544px) {
   
   .img-circle{
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
+
+    margin-top: -10px;
+    margin-left: 0px;
+  }
+
+  .characterName{
+    margin-left: 5px;
+  }
+
+  .caracterNameContainer{
+    margin-top: 10px;
+  }
+
+  .characterDesc{
+    margin-left: 5px;
+  }
+
+  .btn-viewMore{
+    margin-left:0px;
+    width: 100%;
+  }
+
+  #selOrder{
+    width: 100%;
+    height: 40px;
   }
 
 }
@@ -114,6 +183,32 @@ body{
  .img-circle{
     width: 100px;
     height: 100px;
+
+    margin-top: 0px;
+    margin-left: 0px;
+
+  }
+
+   .characterName{
+    margin-left: 5px;
+  }
+
+  .caracterNameContainer{
+    margin-top: 10px;
+  }
+
+   .characterDesc{
+    margin-left: 5px;
+  }
+
+  .btn-viewMore{
+    margin-left:0px;
+    width: 100%;
+  }
+
+  #selOrder{
+    width: 100%;
+    height: 40px;
   }
 
 

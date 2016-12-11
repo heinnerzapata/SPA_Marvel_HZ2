@@ -1,11 +1,33 @@
 
-<div class="container-fluid">
+<div id="homeContainer" class="container-fluid">
 
   <div class="row">
 
     <div class="col-xs-12 col-sm-12 col-md-9">
 
       <div class="container-fluid">
+
+        <div id="sortBySection" class="row flex-items-xs-middle">
+         
+          <div class="col-xs-12 col-md-1 text-xs-center text-md-right">
+            <img id="imgCharacters" src="images/characters.png">
+          </div>
+          
+          <div class="col-xs-12 col-md-7 text-xs-center text-md-left">
+            <H3 id="lblCharacters">Characters</H3>
+          </div>
+          <div class="col-xs-12 col-md-2 text-xs-center text-md-right">
+            
+             <select id="selOrder">
+                <option value="0">Sort by</option>
+                <option value="1">Saab</option>
+                <option value="2">Mercedes</option>
+                <option value="3">Audi</option>
+              </select> 
+
+          </div>
+
+        </div>
 
         <div class="row">
 
@@ -17,14 +39,14 @@
 
                     <div class="row" style='min-height:200px;'>
 
-                     <div class="col-xs-12 col-sm-6 col-md-6">
+                     <div class="col-xs-12 col-sm-6 col-md-6 text-xs-center">
                         <img class='img-circle' src='{{Character.thumbnail.path + "." +  Character.thumbnail.extension}}'>
                      </div>
                      <div class="col-xs-12 col-sm-6 col-md-6">
 
-                         <div class='row text-xs-left'>
+                         <div class='row'>
 
-                           <div class='caracterNameContainer' class='col-xs-12'>
+                           <div class='caracterNameContainer col-xs-12 text-xs-center text-md-left'>
                              <p class='characterName'>{{Character.name}}</p>
                            </div>
 
@@ -35,7 +57,7 @@
                            </div>
 
                            <div class='col-xs-12'>
-                              <input type='button' class='btn btn-primary btn-viewMore' value='View more' />
+                              <input type='button' class='btnViewMore btn btn-primary btn-viewMore' value='View more' />
                            </div>
 
                          </div>
@@ -52,17 +74,28 @@
                             </div>
 
                     </div>
-
                   </div>
 
                   <div class="row text-xs-left">
                     
                     <div class="col-xs-6">
-                        <p class="relatedDescItem">{{Character.comics.items[0].name}}</p>
+                        
+                      <div class="row">  
+                        <div class='col-xs-2'><img class='img-arrow-link hidden' src='images/link-arrow.png'>
+                        </div>
+                        <div class='col-xs-10'><p class="relatedDescItem">{{Character.comics.items[0].name}}</p>
+                        </div>
+                      </div>
+
                     </div>
 
                     <div class="col-xs-6">
-                       <p class="relatedDescItem">{{Character.comics.items[1].name}}</p>
+                        <div class="row">  
+                        <div class='col-xs-2'><img class='img-arrow-link hidden' src='images/link-arrow.png'>
+                        </div>
+                        <div class='col-xs-10'><p class="relatedDescItem">{{Character.comics.items[1].name}}</p>
+                        </div>
+                      </div>
                     </div>
 
                   </div>
@@ -71,11 +104,21 @@
                   <div class="row text-xs-left">
                     
                     <div class="col-xs-6">
-                       <p class="relatedDescItem">{{Character.comics.items[2].name}}</p>
+                        <div class="row">  
+                        <div class='col-xs-2'><img class='img-arrow-link hidden' src='images/link-arrow.png'>
+                        </div>
+                        <div class='col-xs-10'><p class="relatedDescItem">{{Character.comics.items[2].name}}</p>
+                        </div>
+                      </div>
                     </div>
 
                     <div class="col-xs-6">
-                       <p class="relatedDescItem">{{Character.comics.items[3].name}}</p>
+                        <div class="row">  
+                        <div class='col-xs-2'><img class='img-arrow-link hidden' src='images/link-arrow.png'>
+                        </div>
+                        <div class='col-xs-10'><p class="relatedDescItem">{{Character.comics.items[3].name}}</p>
+                        </div>
+                      </div>
                     </div>
 
                   </div>
@@ -87,6 +130,8 @@
          </div>
 
         </div>
+
+
 
       </div>
 
