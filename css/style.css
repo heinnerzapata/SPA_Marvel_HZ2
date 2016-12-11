@@ -1,6 +1,7 @@
 body{
   background-color: #EBEBEB;
   color: #2D2727;
+  font-family: 'Raleway', sans-serif;
 }
 
 #header-container{
@@ -15,9 +16,9 @@ body{
 
 .card{
   width:100%;
-  height:60vh;
   background-color: white;
   margin-top: 25px;
+  min-height: 400px;
 }
 
 .img-circle {
@@ -32,28 +33,118 @@ body{
 
 .characterName{
 
-    font-size: 22px;
+    font-size: 15px;
     font-weight: bold;
+    margin-left: -15px;
+
+}
+
+.characterDesc{
+    
+    font-size: 11px;
+    margin-left: -30px;
+    margin-top: 5px;
+    text-align: justify;
+    text-justify: inter-word;
+    padding: 2px;
+    
+    max-height: 150px;
+    overflow: auto;
+
+
 }
 
 .caracterNameContainer{
-  margin-top: -18px;
+  margin-top: -10px;
 }
 
-@media (min-width: 544px) {
+.btn-viewMore{
+    background-color: #EC1D23;
+    margin-left: -30px;
+    border:solid 1px #EC1D23;
+    font-weight: bold;
+}
 
+.btn-viewMore:hover{
+  background-color: #6E0D10;
+  border:solid 1px #6E0D10;
+}
+
+.btn-viewMore:focus{
+  background-color: #6E0D10;
+  border:solid 1px #6E0D10;
+}
+
+.btn-viewMore:selected{
+  background-color: #6E0D10;
+  border:solid 1px #6E0D10;
+}
+
+
+.relatedDesc{
+   color:#786E6D;
+   font-size: 16px;
+   margin-top: 20px;
+   margin-left: 15px;
+   font-weight: bold;
+}
+
+.relatedDescItem{
+  font-size: 11px;
+  margin-top: 5px;
+}
+
+.relatedDescItem:hover{
+  font-weight: bold;
+  color: #EC1D23;
+  cursor: pointer;
+}
+
+@media (min-width: 100px) and (max-width: 544px) {
+  
+  .img-circle{
+    width: 100px;
+    height: 100px;
+  }
+
+}
+
+@media (min-width: 545px) and (max-width: 768px) {
+
+ .img-circle{
+    width: 100px;
+    height: 100px;
+  }
 
 
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) and (max-width: 992px) {
+
+  .img-circle{
+    width: 120px;
+    height: 120px;
+  }
 
 }
 
-@media (min-width: 992px) {
-
+@media (min-width: 993px) and (max-width: 1200px){
+  .img-circle{
+    width: 160px;
+    height: 160px;
+  }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1201px) and (max-width: 1450px){
+  .img-circle{
+    width: 200px;
+    height: 200px;
+  }
+}
 
+@media (min-width: 1451px){
+  .img-circle{
+    width: 240px;
+    height: 240px;
+  }
 }
