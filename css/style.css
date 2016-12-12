@@ -110,6 +110,10 @@ footer{
   display: none;
 }
 
+.shown{
+  display: block;
+}
+
 #marvel-logo{
   height: 60px;
   width: 180px;

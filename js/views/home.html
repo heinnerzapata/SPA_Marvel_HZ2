@@ -1,4 +1,36 @@
 
+<!--Header-->
+<header>
+  <div id="header-container" class="container-fluid">
+    <div class="row text-xs-center flex-items-xs-middle">
+      
+      <div class="col-xs-12 col-sm-12 col-md-2">
+        
+        <a href="#home"><img id="marvel-logo" src="images/MARVEL_LOGO.png"/></a>
+
+      </div>
+      
+      <div class="col-xs-12 col-sm-12 col-md-6 text-xs-center text-md-right">
+
+        
+          <input id="txtSearch" ng-model="Search" type="text" placeholder="Search character..." />  
+          <img id="img-search" src="images/search.png">
+
+
+      </div>
+   
+      <div class="col-xs-12 col-sm-12 col-md-2">
+        
+      </div>
+
+
+    </div>
+  </div>
+</header>
+<!--/Header-->
+
+
+
 <div id="homeContainer" class="container-fluid">
 
   <div class="row">
@@ -16,23 +48,22 @@
           <div class="col-xs-12 col-md-9 text-xs-center text-md-left">
             <H3 id="lblCharacters">Characters</H3>
           </div>
-          <div class="col-xs-12 col-md-2 text-xs-center text-md-right">
-                         
+          <div class="col-xs-12 col-md-2 text-xs-center text-md-right">                     
               <select id="selOrder" class="custom-select">
               <option selected>Sort by</option>
               <option value="1">One</option>
               <option value="2">Two</option>
               <option value="3">Three</option>
+
             </select>
 
 
           </div>
-
+        
         </div>
 
         <div class="row">
-
-          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" ng-repeat="Character in Characters">
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" ng-repeat="Character in Characters | filter:Search | limitTo:80">
 
                 <div class="card">
 
@@ -80,23 +111,37 @@
                   <div class="row text-xs-left">
                     
                     <div class="col-xs-6">
-                        
-                      <div class="row">  
-                        <div class='col-xs-2'><img class='img-arrow-link hidden' src='images/link-arrow.png'>
-                        </div>
-                        <div class='col-xs-10'><p class="relatedDescItem">{{Character.comics.items[0].name}}</p>
-                        </div>
-                      </div>
 
-                    </div>
+
+                      <div class="row flex-items-xs-middle">
+                        <div class='col-xs-2 text-xs-right'>
+                          <img ng-init="Character.sel1='0'" ng-class="{'hidden':Character.sel1 == '0','shown':Character.sel1 == '1'}" class='img-arrow-link' src='images/link-arrow.png'>
+                        </div>
+                        <div class='col-xs-10 text-xs-left'>
+                          <p class="relatedDescItem" ng-mouseenter="Character.sel1='1'" ng-mouseout="Character.sel1='0'">{{Character.comics.items[1].name}}</p>
+                        </div>
+                      </div>       
+
+                        
+                    
+
+                     </div>
 
                     <div class="col-xs-6">
-                        <div class="row">  
-                        <div class='col-xs-2'><img class='img-arrow-link hidden' src='images/link-arrow.png'>
+
+
+
+                          <div class="row flex-items-xs-middle">
+                        <div class='col-xs-2'>
+                          <img ng-init="Character.sel0='0'" ng-class="{'hidden':Character.sel0 == '0','shown':Character.sel0 == '1'}" class='img-arrow-link' src='images/link-arrow.png'>
                         </div>
-                        <div class='col-xs-10'><p class="relatedDescItem">{{Character.comics.items[1].name}}</p>
+                        <div class='col-xs-10'>
+                          <p class="relatedDescItem" ng-mouseenter="Character.sel0='1'" ng-mouseout="Character.sel0='0'">{{Character.comics.items[0].name}}</p>
                         </div>
-                      </div>
+                      </div>                       
+
+                      
+
                     </div>
 
                   </div>
@@ -105,21 +150,33 @@
                   <div class="row text-xs-left">
                     
                     <div class="col-xs-6">
-                        <div class="row">  
-                        <div class='col-xs-2'><img class='img-arrow-link hidden' src='images/link-arrow.png'>
+                        
+
+                        <div class="row flex-items-xs-middle">
+                        <div class='col-xs-2'>
+                          <img ng-init="Character.sel2='0'" ng-class="{'hidden':Character.sel2 == '0','shown':Character.sel2 == '1'}" class='img-arrow-link' src='images/link-arrow.png'>
                         </div>
-                        <div class='col-xs-10'><p class="relatedDescItem">{{Character.comics.items[2].name}}</p>
+                        <div class='col-xs-10'>
+                          <p class="relatedDescItem" ng-mouseenter="Character.sel2='1'" ng-mouseout="Character.sel2='0'">{{Character.comics.items[2].name}}</p>
                         </div>
                       </div>
+
+                       
                     </div>
 
                     <div class="col-xs-6">
-                        <div class="row">  
-                        <div class='col-xs-2'><img class='img-arrow-link hidden' src='images/link-arrow.png'>
+                        
+
+                       <div class="row flex-items-xs-middle">
+                        <div class='col-xs-2'>
+                          <img ng-init="Character.sel3='0'" ng-class="{'hidden':Character.sel3 == '0','shown':Character.sel3 == '1'}" class='img-arrow-link' src='images/link-arrow.png'>
                         </div>
-                        <div class='col-xs-10'><p class="relatedDescItem">{{Character.comics.items[3].name}}</p>
+                        <div class='col-xs-10'>
+                          <p class="relatedDescItem" ng-mouseenter="Character.sel3='1'" ng-mouseout="Character.sel3='0'">{{Character.comics.items[3].name}}</p>
                         </div>
                       </div>
+
+
                     </div>
 
                   </div>
@@ -129,6 +186,32 @@
                 </div>
 
          </div>
+
+        </div>
+
+        <div class="col-xs-12 text-xs-center" >
+          
+            <nav aria-label="Page navigation">
+              <ul class="pagination">
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
 
         </div>
 
