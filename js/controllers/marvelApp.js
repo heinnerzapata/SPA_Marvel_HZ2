@@ -1,4 +1,4 @@
-var mainApp = angular.module('mainApp',['ngRoute']);
+var mainApp = angular.module('mainApp',['ngRoute','angularUtils.directives.dirPagination']);
 
 mainApp.config(function($routeProvider){
 
@@ -18,10 +18,14 @@ mainApp.config(function($routeProvider){
 mainApp.controller('homeController',function homeController($scope,$http) {
 
     $scope.Characters = [];
-   
+    $scope.Search = '';
+    $scope.filterOrder = 'name';
 
+    $scope.newSearch = function(filter){
+      $scope.getCharacters(filter);
+    }
 
-    $scope.getCharacters = function()
+    $scope.getCharacters = function(filter)
     {
 
       /*
@@ -30,7 +34,18 @@ mainApp.controller('homeController',function homeController($scope,$http) {
 
       */
 
-      $http.get('https://gateway.marvel.com/v1/public/characters?ts=1&apikey=3ea1cd1673639f6a528e957b1db5939b&hash=cfa3f7936bc2ccd074e8876351bcffa3').
+      var url = 'https://gateway.marvel.com/v1/public/characters?';
+      var ApiKey = 'ts=1&apikey=3ea1cd1673639f6a528e957b1db5939b&hash=cfa3f7936bc2ccd074e8876351bcffa3';
+      var namefilter = '';
+
+      if(filter != '')
+        namefilter = 'nameStartsWith=' + filter + '&';
+
+     
+      var limit = 'limit=50&';
+
+
+      $http.get(url+namefilter+limit+ApiKey).
           then(function(response) {
               $scope.Characters = response.data.data.results;
 
@@ -38,6 +53,6 @@ mainApp.controller('homeController',function homeController($scope,$http) {
 
     }
 
-    $scope.getCharacters();
+    $scope.getCharacters('');
 
 });
