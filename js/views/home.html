@@ -118,7 +118,7 @@
                           <img ng-init="Character.sel1='0'" ng-class="{'hidden':Character.sel1 == '0','shown':Character.sel1 == '1'}" class='img-arrow-link' src='images/link-arrow.png'>
                         </div>
                         <div class='col-xs-10 text-xs-left'>
-                          <p class="relatedDescItem" ng-mouseenter="Character.sel1='1'" ng-mouseout="Character.sel1='0'">{{Character.comics.items[1].name}}</p>
+                          <p class="relatedDescItem" ng-mouseenter="Character.sel1='1'" ng-mouseout="Character.sel1='0'" ng-click="getComic(Character.comics.items[1].resourceURI)">{{Character.comics.items[1].name}}</p>
                         </div>
                       </div>       
 
@@ -136,7 +136,7 @@
                           <img ng-init="Character.sel0='0'" ng-class="{'hidden':Character.sel0 == '0','shown':Character.sel0 == '1'}" class='img-arrow-link' src='images/link-arrow.png'>
                         </div>
                         <div class='col-xs-10'>
-                          <p class="relatedDescItem" ng-mouseenter="Character.sel0='1'" ng-mouseout="Character.sel0='0'">{{Character.comics.items[0].name}}</p>
+                          <p class="relatedDescItem" ng-mouseenter="Character.sel0='1'" ng-mouseout="Character.sel0='0'" ng-click="getComic(Character.comics.items[1].resourceURI)">{{Character.comics.items[0].name}}</p>
                         </div>
                       </div>                       
 
@@ -157,7 +157,7 @@
                           <img ng-init="Character.sel2='0'" ng-class="{'hidden':Character.sel2 == '0','shown':Character.sel2 == '1'}" class='img-arrow-link' src='images/link-arrow.png'>
                         </div>
                         <div class='col-xs-10'>
-                          <p class="relatedDescItem" ng-mouseenter="Character.sel2='1'" ng-mouseout="Character.sel2='0'">{{Character.comics.items[2].name}}</p>
+                          <p class="relatedDescItem" ng-mouseenter="Character.sel2='1'" ng-mouseout="Character.sel2='0'" ng-click="getComic(Character.comics.items[1].resourceURI)">{{Character.comics.items[2].name}}</p>
                         </div>
                       </div>
 
@@ -172,7 +172,7 @@
                           <img ng-init="Character.sel3='0'" ng-class="{'hidden':Character.sel3 == '0','shown':Character.sel3 == '1'}" class='img-arrow-link' src='images/link-arrow.png'>
                         </div>
                         <div class='col-xs-10'>
-                          <p class="relatedDescItem" ng-mouseenter="Character.sel3='1'" ng-mouseout="Character.sel3='0'">{{Character.comics.items[3].name}}</p>
+                          <p class="relatedDescItem" ng-mouseenter="Character.sel3='1'" ng-mouseout="Character.sel3='0'" ng-click="getComic(Character.comics.items[1].resourceURI)">{{Character.comics.items[3].name}}</p>
                         </div>
                       </div>
 
@@ -236,7 +236,26 @@
     <div id="favComicsSection" class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
         
 
-<button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
+        <div ng-repeat="favComic in favComics" class="newFavComicSection row text-xs-center">
+          
+          <div class="col-xs-12">
+          
+             <div class="container"><img class="img-fluid" src="{{favComic.img}}"></div>
+          
+          </div>
+          
+
+          <div class="col-xs-12">
+            
+            <h5>{{favComic.name}}</h5>
+
+          </div>
+
+
+        </div>
+
+
+<button id="btnTest" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
 
     </div>
 
@@ -259,26 +278,31 @@
                 
                 <div id="row-mainInfo-comic" class="row">
                   
-                  <div class="col-xs-5">
+                  <div class="col-xs-4">
                    
-                    
+                    <img class="modal-img" src="{{modalComicImg}}">
                    
                   </div>
-                   <div class="col-xs-7">
+                   <div class="col-xs-8">
                     
-                    HZ
+                    <div class="row text-xs-center flex-xs-middle"><div class="col-xs-12"><h2>{{modalComicTitle}}</h2></div></div>
+                    <div class="row text-xs-center flex-xs-middle"><div class="col-xs-12"><p class="modalComicDesc">{{modalComicDesc}}</p></div></div>                    
 
                   </div>
 
                 </div>
 
                 <div id="row-footerInfo-comic" class="row">
-                  <div id="addFav-modal-container" class="col-xs-6">
+                  <div id="left-modal-section" class="col-xs-6" ng-mouseover="overFav=1" ng-mouseout="overFav=0">
                     
-                    <div class="row flex-items-xs-middle">
+                  <a ng-click="addFavorite(modalComicTitle,modalComicImg)">
+                  <div class="row flex-items-xs-middle text-xs-right">
+                                               
+                      <div class="col-xs-1"></div>
                       
-                      <div class="col-xs-3 text-xs-right">
-                        <img id="btn-add-fav" src="images/btn-favourites-default.png">
+
+                      <div id="btn-add-fav-parent" class="col-xs-2 text-xs-right">
+                        <div id="btn-add-fav" ng-init="overFav='0'" ng-class="{'addFav-modal-container':overFav == '0','addFav-modal-container-hover':overFav == '1'}"/>
                       </div>
                       <div class="col-xs-9 text-xs-left">
                         <h4>ADD TO FAVOURITES</h4>
@@ -287,6 +311,8 @@
                     </div>
 
                   </div>
+                  </a>
+
                   <div id="buy-modal-container" class="col-xs-6">
                     
                     <div class="row flex-items-xs-middle">
@@ -295,7 +321,7 @@
                         <img id="btn-add-fav" src="images/shopping-cart-primary.png">
                       </div>
                       <div class="col-xs-9 text-xs-left">
-                        <h4 id="buy-for-text">BUY FOR $3,00</h4>
+                        <h4 id="buy-for-text">BUY FOR ${{modalComicPrice}}</h4>
                       </div>
 
                     </div>

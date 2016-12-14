@@ -179,8 +179,8 @@ footer{
 }
 
 .pagination a{
-   font-size: 30px !important;
-   color:#EC1D23 !important;
+   font-size: 25px !important;
+   color:#2d2d2d !important;
 }
 
 
@@ -209,13 +209,32 @@ footer{
   cursor: pointer;
 }
 
-#addFav-modal-container{
- background-color: #F0F0F0;
+.addFav-modal-container{
+   background-image: url("../images/btn-favourites-default.png");
+   height: 30px;
+   width: 30px;
+   background-size: cover;
 }
 
 
-#addFav-modal-container-hover{
+.addFav-modal-container-hover{
+   background-image: url("../images/btn-favourites-primary.png");
+   height: 30px;
+   width: 30px;
+   background-size: cover;
+}
+
+#btn-add-fav-parent{
+  text-align: right !important;
+}
+
+#left-modal-section{
+   background-color: #F0F0F0;
+}
+
+#left-modal-section:hover{
   background-color:#322827;
+  color: #EC1D23;
 }
 
 #buy-modal-container{
@@ -233,6 +252,31 @@ footer{
   height: 10vh;
  
 }
+
+.modal-img{
+  width: auto;
+  height: 100%;
+}
+
+.modalComicDesc{
+   text-align: justify;
+   text-justify: inter-word;
+   font-size: 14px;
+}
+
+#btnTest{
+  display: none;
+}
+
+#favComicsSection{
+  padding: 10px;
+}
+
+.newFavComicSection{
+  margin-bottom: 20px;
+}
+
+
 
 @media (min-width: 100px) and (max-width: 544px) {
   
@@ -316,16 +360,16 @@ footer{
 @media (min-width: 769px) and (max-width: 992px) {
 
   .img-circle{
-    width: 120px;
-    height: 120px;
+    width: 200px;
+    height: 200px;
   }
 
 }
 
 @media (min-width: 993px) and (max-width: 1200px){
   .img-circle{
-    width: 160px;
-    height: 160px;
+    width: 200px;
+    height: 200px;
   }
 }
 

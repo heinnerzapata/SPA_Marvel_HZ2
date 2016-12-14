@@ -14,6 +14,15 @@ mainApp.config(function($routeProvider){
 });
 
 
+mainApp.factory('comicFavorite', function() {
+    
+    var obj = [
+      //{name:,img:image}
+    ];      
+
+    return {getComicFavorite:function(){return obj;}};
+});
+
 
 mainApp.controller('homeController',function homeController($scope,$http) {
 
@@ -21,18 +30,53 @@ mainApp.controller('homeController',function homeController($scope,$http) {
     $scope.Search = '';
     $scope.filterOrder = 'name';
 
+    $scope.favComics = [];
+
+    
+   
+    //Comic data
+    
+    $scope.addFavorite = function(name,image){
+       
+       $scope.favComics.push({"name":name,"img":image});
+
+    }
+
+
+    $scope.getComic = function(filter){
+       
+       var str = filter;
+       var res = str.split("/");
+
+       $scope.modalComicId = res[6];
+
+       var url = 'https://gateway.marvel.com:443/v1/public/comics/';
+       var ApiKey = 'ts=1&apikey=3ea1cd1673639f6a528e957b1db5939b&hash=cfa3f7936bc2ccd074e8876351bcffa3';
+       var namefilter = $scope.modalComicId + '?';
+
+       $http.get(url+namefilter+ApiKey).
+          then(function(response) {
+
+              $scope.modalComicTitle = response.data.data.results[0].title;
+              $scope.modalComicDesc = response.data.data.results[0].description;
+              $scope.modalComicPrice = response.data.data.results[0].prices[0].price;
+              $scope.modalComicImg = response.data.data.results[0].thumbnail.path + '.' + response.data.data.results[0].thumbnail.extension;
+              
+              $("#btnTest").click();
+              
+          });
+    
+       
+       
+
+    }
+
     $scope.newSearch = function(filter){
       $scope.getCharacters(filter);
     }
 
     $scope.getCharacters = function(filter)
     {
-
-      /*
-        https://gateway.marvel.com:443/v1/public/characters/1011334?ts=1&apikey=3ea1cd1673639f6a528e957b1db5939b&hash=cfa3f7936bc2ccd074e8876351bcffa3
-        http://gateway.marvel.com/v1/public/characters/1009491?ts=1&apikey=3ea1cd1673639f6a528e957b1db5939b&hash=cfa3f7936bc2ccd074e8876351bcffa3
-
-      */
 
       var url = 'https://gateway.marvel.com/v1/public/characters?';
       var ApiKey = 'ts=1&apikey=3ea1cd1673639f6a528e957b1db5939b&hash=cfa3f7936bc2ccd074e8876351bcffa3';
