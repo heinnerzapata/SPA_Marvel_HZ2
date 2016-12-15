@@ -18,13 +18,13 @@ footer{
   width:100%;
   background-color: white;
   margin-top: 25px;
-  min-height: 400px;
+  min-height: 550px;
 }
 
 .img-circle {
     border-radius: 50%;
-    margin-left: -30px;
-    margin-top: -10px;
+    margin-left: -60px;
+    margin-top: -20px;
 
   -webkit-box-shadow: 4px 6px 16px -4px rgba(0,0,0,0.75);
    -moz-box-shadow: 4px 6px 16px -4px rgba(0,0,0,0.75);
@@ -33,22 +33,23 @@ footer{
 
 .characterName{
 
-    font-size: 15px;
+    font-size: 35px;
     font-weight: bold;
     margin-left: -15px;
+    margin-top: -15px;
 
 }
 
 .characterDesc{
     
-    font-size: 11px;
+    font-size: 14px;
     margin-left: -30px;
     margin-top: 5px;
     text-align: justify;
     text-justify: inter-word;
     padding: 2px;
     
-    max-height: 150px;
+    max-height: 300px;
     overflow: auto;
 
 
@@ -83,14 +84,14 @@ footer{
 
 .relatedDesc{
    color:#786E6D;
-   font-size: 16px;
-   margin-top: 20px;
+   font-size: 20px;
+   margin-top: 40px;
    margin-left: 15px;
    font-weight: bold;
 }
 
 .relatedDescItem{
-  font-size: 11px;
+  font-size: 18px;
   margin-top: 5px;
 
 }
@@ -256,6 +257,10 @@ footer{
 .modal-img{
   width: auto;
   height: 100%;
+  max-width: 100%;
+  -webkit-box-shadow: 4px 6px 16px -4px rgba(0,0,0,0.75);
+   -moz-box-shadow: 4px 6px 16px -4px rgba(0,0,0,0.75);
+   box-shadow: 4px 6px 16px -4px rgba(0,0,0,0.75);
 }
 
 .modalComicDesc{
@@ -269,23 +274,66 @@ footer{
 }
 
 #favComicsSection{
-  padding: 10px;
+  padding-top: 10px;
+
+
 }
 
 .newFavComicSection{
   margin-bottom: 20px;
 }
 
+#lblFavourites{
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 5px;
+  color: #2d2d2d;
+}
+
+#imgFavouritesContainer{
+  text-align: center;
+}
+
+#imgFavouritesContainer img{
+  margin-left: 30px;
+}
+
+#favComicSectionHeader{
+  margin-bottom: 20px;
+}
+
+#imgDeleteContainer{
+    text-align: right;
+     z-index: 100 !important;    
+   
+}
+
+#imgDeleteContainer img{
+    height: 40px;
+    width: 40px;
+    margin-left: 20px;
+       
+}
+
+#imgFavComic{
+  margin-top: -20px;
+  z-index: -100 !important;
+
+}
 
 
 @media (min-width: 100px) and (max-width: 544px) {
   
   .img-circle{
-    width: 150px;
-    height: 150px;
+    width: 250px;
+    height: 250px;
 
     margin-top: -10px;
     margin-left: 0px;
+  }
+
+  .characterDesc{
+    font-size: 20px;
   }
 
   .characterName{
@@ -293,7 +341,7 @@ footer{
   }
 
   .caracterNameContainer{
-    margin-top: 10px;
+    margin-top: 20px;
   }
 
   .characterDesc{
@@ -303,13 +351,29 @@ footer{
   .btn-viewMore{
     margin-left:0px;
     width: 100%;
+    height: 70px;
+    font-size: 28px;
   }
 
   #selOrder{
     width: 100%;
-    height: 40px;
+    height: 80px;
     margin-bottom: 10px;
     margin-left: 0px;
+    font-size: 25px;
+
+  }
+
+  #txtSearch{
+  border-radius: 4px;
+  font-size: 28px;
+  height: 50px;
+  width: 100%;
+  margin-bottom: 10px;    
+  }
+
+  #row-footerInfo-comic{
+    position: fixed;
   }
 
 }
@@ -317,20 +381,25 @@ footer{
 @media (min-width: 545px) and (max-width: 768px) {
 
  .img-circle{
-    width: 100px;
-    height: 100px;
+    width: 250px;
+    height: 250px;
 
     margin-top: 0px;
     margin-left: 0px;
 
   }
 
+   .characterDesc{
+    font-size: 20px;
+  }
+
+
    .characterName{
     margin-left: 5px;
   }
 
   .caracterNameContainer{
-    margin-top: 10px;
+    margin-top: 20px;
   }
 
    .characterDesc{
@@ -340,6 +409,8 @@ footer{
   .btn-viewMore{
     margin-left:0px;
     width: 100%;
+    height: 70px;
+    font-size: 28px;
   }
 
   #selOrder{
@@ -355,21 +426,94 @@ footer{
   }
 
 
+  #selOrder{
+    width: 100%;
+    height: 80px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    font-size: 25px;
+  }
+
+
+  #txtSearch{
+  border-radius: 4px;
+  font-size: 28px;
+  height: 50px;
+  width: 100%;
+  margin-bottom: 10px;    
+  }
+
+  #row-footerInfo-comic{
+    position: fixed;
+  }
+
+
 }
 
 @media (min-width: 769px) and (max-width: 992px) {
 
+  
   .img-circle{
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
+
+    margin-top: 0px;
+    margin-left: 0px;
+
+  }
+
+   .characterDesc{
+    font-size: 20px;
+  }
+
+
+   .characterName{
+    margin-left: 5px;
+  }
+
+  .caracterNameContainer{
+    margin-top: 20px;
+  }
+
+   .characterDesc{
+    margin-left: 5px;
+  }
+
+ .btn-viewMore{
+    margin-left:0px;
+    width: 100%;
+    height: 70px;
+    font-size: 28px;
+  }
+
+
+  #selOrder{
+    width: 100%;
+    height: 80px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    font-size: 25px;
+  }
+
+
+  #txtSearch{
+  border-radius: 4px;
+  font-size: 28px;
+  height: 50px;
+  width: 100%;
+  margin-bottom: 10px;  
+  }
+
+  #row-footerInfo-comic{
+    position: fixed;
   }
 
 }
 
 @media (min-width: 993px) and (max-width: 1200px){
   .img-circle{
-    width: 200px;
-    height: 200px;
+    width: 170px;
+    height: 170px;
   }
 }
 
@@ -382,7 +526,7 @@ footer{
 
 @media (min-width: 1451px){
   .img-circle{
-    width: 240px;
-    height: 240px;
+    width: 260px;
+    height: 260px;
   }
 }

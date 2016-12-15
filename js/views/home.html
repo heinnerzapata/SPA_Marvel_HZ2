@@ -4,13 +4,13 @@
   <div id="header-container" class="container-fluid">
     <div class="row text-xs-center flex-items-xs-middle">
       
-      <div class="col-xs-12 col-sm-12 col-md-2">
+      <div class="col-xs-12 col-lg-2">
         
         <a href="#home"><img id="marvel-logo" src="images/MARVEL_LOGO.png"/></a>
 
       </div>
       
-      <div class="col-xs-12 col-sm-12 col-md-6 text-xs-center text-md-right">
+      <div class="col-xs-12 col-lg-6 text-xs-center text-lg-right">
 
         
           <input id="txtSearch" ng-model="Search" ng-change="newSearch(Search)" type="text" placeholder="Search character..." />  
@@ -19,7 +19,7 @@
 
       </div>
    
-      <div class="col-xs-12 col-sm-12 col-md-2">
+      <div class="col-xs-12 col-lg-2">
         
       </div>
 
@@ -35,20 +35,20 @@
 
   <div class="row">
 
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
 
       <div class="container-fluid">
 
         <div id="sortBySection" class="row flex-items-xs-middle">
          
-          <div class="col-xs-12 col-md-1 text-xs-center text-md-right">
+          <div class="col-xs-12 col-lg-1 text-xs-center text-lg-right">
             <img id="imgCharacters" src="images/characters.png">
           </div>
           
-          <div class="col-xs-12 col-md-9 text-xs-center text-md-left">
+          <div class="col-xs-12 col-lg-9 text-xs-center text-lg-left">
             <H3 id="lblCharacters">Characters</H3>
           </div>
-          <div class="col-xs-12 col-md-2 text-xs-center text-md-right">                     
+          <div class="col-xs-12  text-xs-center text-lg-right">                     
               
             
               <select aria-label="ngSelected demo" id="selOrder" class="custom-select" ng-model="filterOrder">                           
@@ -71,14 +71,14 @@
 
                     <div class="row" style='min-height:200px;'>
 
-                     <div class="col-xs-12 col-sm-6 col-md-6 text-xs-center">
+                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 text-xs-center">
                         <img class='img-circle' src='{{Character.thumbnail.path + "." +  Character.thumbnail.extension}}'>
                      </div>
-                     <div class="col-xs-12 col-sm-6 col-md-6">
+                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
 
                          <div class='row'>
 
-                           <div class='caracterNameContainer col-xs-12 text-xs-center text-md-left'>
+                           <div class='caracterNameContainer col-xs-12 text-xs-center text-lg-left'>
                              <p class='characterName'>{{Character.name}}</p>
                            </div>
 
@@ -110,7 +110,7 @@
 
                   <div class="row text-xs-left">
                     
-                    <div class="col-xs-6">
+                    <div class="col-xs-12 col-md-6">
 
 
                       <div class="row flex-items-xs-middle">
@@ -127,7 +127,7 @@
 
                      </div>
 
-                    <div class="col-xs-6">
+                    <div class="col-xs-12 col-md-6">
 
 
 
@@ -149,7 +149,7 @@
 
                   <div class="row text-xs-left">
                     
-                    <div class="col-xs-6">
+                    <div class="col-xs-12 col-md-6">
                         
 
                         <div class="row flex-items-xs-middle">
@@ -164,7 +164,7 @@
                        
                     </div>
 
-                    <div class="col-xs-6">
+                    <div class="col-xs-12 col-md-6">
                         
 
                        <div class="row flex-items-xs-middle">
@@ -233,14 +233,38 @@
 
     </div>
 
-    <div id="favComicsSection" class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+    <div id="favComicsSection" class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
         
+        <div id="favComicSectionHeader" class="row flex-xs-middle">
+          
+          <div id="imgFavouritesContainer" class="col-xs-3 text-xs-right">
+            <img src="images/favourites.png" class="img-fluid">           
+          </div>          
+          <div class="col-xs-8 text-xs-center">
+            <p id="lblFavourites">My favourites</p>
+          </div>          
+
+
+        </div>
 
         <div ng-repeat="favComic in favComics" class="newFavComicSection row text-xs-center">
           
           <div class="col-xs-12">
           
-             <div class="container"><img class="img-fluid" src="{{favComic.img}}"></div>
+             <div class="row">
+
+               <div id="imgDeleteContainer" class="col-xs-12 text-xs-right">
+
+                 <img class="img-fluid" src="images/btn-delete.png">
+
+               </div>
+               <div class="col-xs-12">
+               <div class="container">
+                  <img id="imgFavComic" class="img-fluid" src="{{favComic.img}}">
+               </div>
+               </div>
+
+             </div>
           
           </div>
           
@@ -263,8 +287,8 @@
     <!--Modal-->
 
     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
+      <div class="modal-dialog modal-lg" >
+        <div class="modal-content" style="overflow:auto;">
 
 
               <div class="modal-header">
@@ -278,15 +302,19 @@
                 
                 <div id="row-mainInfo-comic" class="row">
                   
-                  <div class="col-xs-4">
+                  <div class="col-xs-12 col-lg-6 text-xs-center ">
                    
                     <img class="modal-img" src="{{modalComicImg}}">
                    
                   </div>
-                   <div class="col-xs-8">
+                   <div class="xol-xs-12 col-lg-6">
                     
+                    <div class="container">
+
                     <div class="row text-xs-center flex-xs-middle"><div class="col-xs-12"><h2>{{modalComicTitle}}</h2></div></div>
-                    <div class="row text-xs-center flex-xs-middle"><div class="col-xs-12"><p class="modalComicDesc">{{modalComicDesc}}</p></div></div>                    
+                    <div class="row text-xs-center flex-xs-middle"><div class="col-xs-12"><p class="modalComicDesc">{{modalComicDesc}}</p></div></div>     
+
+                    </div>               
 
                   </div>
 
