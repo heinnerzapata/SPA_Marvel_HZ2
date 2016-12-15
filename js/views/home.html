@@ -89,7 +89,7 @@
                            </div>
 
                            <div class='col-xs-12'>
-                              <input type='button' class='btnViewMore btn btn-primary btn-viewMore' value='View more' />
+                              <input type='button' class='btnViewMore btn btn-primary btn-viewMore' ng-click="openWiki(Character.urls[0].url)" value='View more' />
                            </div>
 
                          </div>
@@ -321,7 +321,7 @@
                 </div>
 
                 <div id="row-footerInfo-comic" class="row">
-                  <div id="left-modal-section" class="col-xs-6" ng-mouseover="overFav=1" ng-mouseout="overFav=0">
+                  <div id="left-modal-section" class="col-xs-12 col-lg-6" ng-mouseover="overFav=1" ng-mouseout="overFav=0">
                     
                   <a ng-click="addFavorite(modalComicTitle,modalComicImg)">
                   <div class="row flex-items-xs-middle text-xs-right">
@@ -341,7 +341,7 @@
                   </div>
                   </a>
 
-                  <div id="buy-modal-container" class="col-xs-6">
+                  <div id="buy-modal-container" class="col-xs-12 col-lg-6">
                     
                     <div class="row flex-items-xs-middle">
                       

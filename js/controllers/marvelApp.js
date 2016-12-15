@@ -35,6 +35,11 @@ mainApp.controller('homeController',function homeController($scope,$http) {
     
    
     //Comic data
+
+
+    $scope.openWiki = function(url){
+      window.open(url);
+    }
     
     $scope.removeComic = function(name){
 
@@ -46,10 +51,10 @@ mainApp.controller('homeController',function homeController($scope,$http) {
           if($scope.favComics[i].name == name){
             $scope.favComics.splice(i,1);
 
+
+
           if (typeof(Storage) !== "undefined") 
-
-            localStorage.removeItem("comic" + String(i+1));
-
+            localStorage.removeItem(name);
             break;
           }
        }
@@ -76,8 +81,11 @@ mainApp.controller('homeController',function homeController($scope,$http) {
 
         $scope.favComics.push({"name":name,"img":image});
 
+
         if (typeof(Storage) !== "undefined") 
-            localStorage.setItem("comic" + String($scope.favComics.length), name+'$'+image);
+
+            localStorage.setItem(name,image);
+
 
        }
 
@@ -143,27 +151,13 @@ mainApp.controller('homeController',function homeController($scope,$http) {
     // Read Localstorage
     if (typeof(Storage) !== "undefined") {
 
-      var j=0;
-      for(j=0;j<3;j++){
+        var i = 0;
+        for (i = 0; i < localStorage.length; i++){
+           $scope.favComics.push({"name":localStorage.key(i),"img":localStorage.getItem(localStorage.key(i))});
 
-          var strObj = "comic" + (j + 1).toString();
-          
-          if(localStorage.getItem(strObj) != null && localStorage.getItem(strObj) != '')
-          {
+        }
 
-            var strComic = localStorage.getItem(strObj);
-
-            var res = strComic.split("$"); 
-
-
-            if(res.length == 2 && res[1] != '-1' && res[1] != '')
-              $scope.favComics.push({"name":res[0],"img":res[1]});
-
-          }
-
-
-      }        
-
+      
     }
 
 });
