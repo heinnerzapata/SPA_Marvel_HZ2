@@ -36,9 +36,50 @@ mainApp.controller('homeController',function homeController($scope,$http) {
    
     //Comic data
     
+    $scope.removeComic = function(name){
+
+      var i=0;
+      var isInArray=false;
+
+      for(i=0;i<$scope.favComics.length;i++)
+       {
+          if($scope.favComics[i].name == name){
+            $scope.favComics.splice(i,1);
+
+          if (typeof(Storage) !== "undefined") 
+
+            localStorage.setItem("comic" + String($scope.favComics.length), '-1');
+
+            break;
+          }
+       }
+
+    }    
+
     $scope.addFavorite = function(name,image){
        
-       $scope.favComics.push({"name":name,"img":image});
+       var i=0;
+       var isInArray=false;
+
+       
+       for(i=0;i<$scope.favComics.length;i++)
+       {
+          if($scope.favComics[i].name == name){
+            isInArray = true;
+            break;
+          }
+       }
+       
+
+
+       if(!isInArray && $scope.favComics.length <= 2){
+
+        $scope.favComics.push({"name":name,"img":image});
+
+        if (typeof(Storage) !== "undefined") 
+            localStorage.setItem("comic" + String($scope.favComics.length), name+'$'+image);
+
+       }
 
     }
 
@@ -98,5 +139,25 @@ mainApp.controller('homeController',function homeController($scope,$http) {
     }
 
     $scope.getCharacters('');
+
+    // Read Localstorage
+    if (typeof(Storage) !== "undefined") {
+
+      var j=0;
+      for(j=0;j<localStorage.length;j++){
+
+          var strObj = "comic" + (j + 1).toString();
+          var strComic = localStorage.getItem(strObj);
+          var res = strComic.split("$"); 
+
+
+          if(res.length > 0 && res[1] != '-1' && res[1] != '')
+            $scope.favComics.push({"name":res[0],"img":res[1]});
+ 
+
+
+      }        
+
+    }
 
 });
